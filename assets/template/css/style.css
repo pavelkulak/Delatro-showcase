@@ -1,0 +1,227 @@
+/* ----- Accessibility Utilities ----- */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+
+/* ----- Layout ----- */
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.case-section {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(55px, 5vw, 30px);
+    text-align: start;
+    align-items: center;
+}
+
+.case-section__header {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+/* ----- Content block ----- */
+
+.case-section__content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: start;
+    max-width: 450px;
+}
+
+.case-section__content h3 {
+    margin-top: 18px;
+}
+
+
+/* ----- Media (image) block ----- */
+
+.case-section__media {
+    position: relative;
+    order: -1;
+    width: clamp(270px, 21.15vw + 194px, 600px);
+}
+
+.case-section__image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* ----- Buttons ----- */
+
+.btn {
+    display: inline-block;
+    width: fit-content;
+    padding: 10px 16px;
+    margin-top: 48px;
+    background-color: #ED5026;
+    color: #ffffff;
+    font-family: 'Comfortaa', -apple-system, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+.btn--outline {
+    border: 1px solid #ED5026;
+    background-color: transparent;
+    margin-top: 0px;
+}
+
+
+/* ----- Decorative elements ----- */
+
+.case-section__decor {
+    width: clamp(243px, 163px + 22.1vw, 588px);
+    height: auto;
+    position: absolute;
+    z-index: -1;
+}
+
+.case-section__decor--laptop {
+    top: -21%;
+    left: 17%;
+}
+
+.case-section__decor--cross {
+    top: -8%;
+    right: 37%;
+}
+
+.case-section__decor--overview {
+    top: 4%;
+    left: 21%;
+}
+
+
+/* =============================================================
+   Responsive
+   ============================================================= */
+
+/* ----- ≤ 480px (small mobile) ----- */
+
+@media (max-width: 480px) {
+    .btn {
+        display: block;
+        width: 100%;
+    }
+}
+
+/* ----- ≥ 768px (tablet / desktop) ----- */
+
+@media (min-width: 768px) {
+    .container {
+        padding: 80px 20px;
+        gap: 140px;
+    }
+
+    .case-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        text-align: left;
+        align-items: center;
+    }
+
+    .case-section__media {
+        order: 0;
+    }
+
+    .case-section--reverse .case-section__content {
+        grid-column: 2;
+    }
+
+    .case-section--reverse .case-section__media {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .case-section--spaced {
+        margin-top: clamp(10px, 5vw, 55px);
+    }
+
+    /* Override for specific section spacing if it was .mt-50 */
+    .mt-50 {
+        margin-top: clamp(10px, 5vw, 55px);
+    }
+
+    .case-section__decor--laptop {
+        left: 18%;
+    }
+
+    .case-section__decor--cross {
+        top: -9%;
+        right: 32%;
+    }
+
+    .case-section__decor--overview {
+        top: 1%;
+        left: 11%;
+    }
+}
+
+/* ----- ≥ 1280px (large desktop) ----- */
+
+@media (min-width: 1280px) {
+    .case-section__decor--laptop {
+        left: 19%;
+    }
+
+    .case-section__decor--cross {
+        top: -10%;
+        right: 26%;
+    }
+
+    .case-section__decor--overview {
+        top: -4%;
+        left: -2%;
+    }
+}
+
+/* ----- ≥ 1920px (extra-large) ----- */
+
+@media (min-width: 1920px) {
+    .case-section__decor--laptop {
+        left: 20%;
+    }
+
+    .case-section__decor--cross {
+        top: -12%;
+        right: 19%;
+    }
+
+    .case-section__decor--overview {
+        top: -9%;
+        left: -18%;
+    }
+}

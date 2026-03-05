@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --h1-size: 20px;
+    --p-size: 14px;
+    --span-size: 16px;
+}
+
+@media (min-width: 1920px) {
+    :root {
+        --h1-size: 42px;
+        --span-size: 18px;
+    }
+}
+
+body {
+    background: #050505;
+    color: #ffffff;
+    font-family: "Raleway", -apple-system, sans-serif;
+}
+
+h1 {
+    font-size: clamp(20px, 5vw, 42px);
+    font-weight: 700;
+    line-height: 102%;
+}
+
+
+p {
+    font-size: 14px;
+    line-height: 120%;
+}
+
+span {
+    font-size: clamp(16px, 5vw, 18px);
+    color: var(--text);
+    line-height: 120%;
+    display: block;
+}
